@@ -1,19 +1,27 @@
-const ShoppingList = () => {
-    const shop = [
-        `monstrera`,
-        `focus lyrata`,
-        `pothos arganté`,
-        `yucca`,
-        `palmier`
-    ]
-    return ( 
-        <ul>
-            {shop.map((plant, index)=>(
-                  <li key = { `$ {plant} - ${index} ` } > {plant} </li>
-            ))}
-          
-        </ul>
-     );
+import { PlantList } from '../data/PlantList'
+
+function ShoppingList() {
+	const categories = PlantList.reduce(
+		(acc, plant) =>
+			acc.includes(plant.category) ? acc : acc.concat(plant.category),
+		[]
+	)
+
+	return (
+		<div>
+			<ul>
+				{categories.map((cat) => (
+					<li key={cat}>{cat}</li>
+				))}
+			</ul>
+			<ul>
+				{PlantList.map((plant) => (
+					<li key={plant.id}> {plant.name}
+                        {plant.isBestSale? <span>💥</span> : <span>👎</span>}</li>
+				))}
+			</ul>
+		</div>
+	)
 }
- 
-export default ShoppingList;
+
+export default ShoppingList
