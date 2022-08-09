@@ -1,7 +1,15 @@
 .lmj-jungle{
 
+    display: flex;
+    justify-content: flex-end;
+    gap : 20px;
     color: black;
     padding: 32px;
     text-align: right;
     border-bottom: 3px solid black;
+}
+.logo-jungle{
+   
+    width: 70px;
+    height:70px;
 }
