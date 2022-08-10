@@ -17,9 +17,10 @@ function ShoppingList() {
 			<ul>
 				{PlantList.map((plant) => (
 					<li key={plant.id}> {plant.name}
-                        {plant.isBestSale? <span>💥</span> : <span>👎</span>}</li>
+                        {plant.isBestSale && plant.category === 'classique' && <span>💥</span> }</li>
 				))}
 			</ul>
+			
 		</div>
 	)
 }
